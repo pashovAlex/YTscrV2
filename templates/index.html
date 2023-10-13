@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YTscr V2</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+    <script src="{{ url_for('static', filename='scripting/f5.js') }}"></script>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <form method="POST">
+            <label for="flLinkInput">Постави линк за плейлиста си</label><br>
+            <input type="text" id="flLinkInput" name="flLinkInput"><br>
+            <input type="submit" value="Сканирай плейлиста" onclick="f5">
+        </form>
+         <div id="loader"></div>
+    </div>
+</body>
+
+</html>
