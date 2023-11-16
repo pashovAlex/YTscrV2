@@ -8,7 +8,24 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         # user_variable = request.form['user_variable']
-        return render_template("index2.html", urls = scrapeUrls(getInnerHTML(request.form['flLinkInput'])), i = 1)
+        input = request.form["flLinkInput"]
+        try:
+            innerHTML = getInnerHTML(input)
+        except:
+            errorUrl = "GO BACK AND ENTER VALID URL !!!"
+            print(errorUrl)
+            return render_template("error.html", err=errorUrl)
+        else:
+            print("getting Inner HTML successfuly :)")
+        try:
+            urls = scrapeUrls(innerHTML)
+        except:
+            errorScr = "SCRAPPER ERROR, GO BACK AND TRY AGAIN !!!"
+            print(errorScr)
+            return render_template("error.html", err=errorScr)
+        else:
+            print("scrapping successfuly :)")
+        return render_template("index2.html", urls = scrapeUrls(innerHTML), i = 1)
         # return user_variable
     return render_template("index.html")
 

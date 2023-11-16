@@ -1,0 +1,16 @@
+* {
+    background-color: #C63D2F;
+}
+h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+#h1Border {
+    width: 25%;
+    height: 25%;
+    margin: auto;
+    padding: auto;
+    border: 2px solid black;
+    text-align: center;
+}
