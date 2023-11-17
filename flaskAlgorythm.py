@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from scraper import getInnerHTML, scrapeUrls, pandas_output
+from scraper import getInnerHTML, scrapeVids, pandas_output
 
 global flLinkInput
 app = Flask(__name__)
@@ -18,14 +18,14 @@ def index():
         else:
             print("getting Inner HTML successfuly :)")
         try:
-            urls = scrapeUrls(innerHTML)
+            playlist = scrapeVids(innerHTML)
         except:
             errorScr = "SCRAPPER ERROR, GO BACK AND TRY AGAIN !!!"
             print(errorScr)
             return render_template("error.html", err=errorScr)
         else:
             print("scrapping successfuly :)")
-        return render_template("index2.html", urls = scrapeUrls(innerHTML), i = 1)
+        return render_template("index2.html", playlist = playlist)
         # return user_variable
     return render_template("index.html")
 
