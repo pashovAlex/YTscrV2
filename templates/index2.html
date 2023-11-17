@@ -13,7 +13,12 @@
             <ol>
             {% for vids in playlist %}
                 {% for attr in vids %}
-                    <li><a href="{{ attr[1] }}" target="_blank">{{ attr[0] }}</a></li>
+                <li>
+                    <img src="{{ attr[2] }}" alt="video-thumnail">
+                    <br>
+                    <a href="{{ attr[1] }}" target="_blank">{{ attr[0] }}</a>
+                    <hr>
+                </li>
                 {% endfor %}
             {% endfor %}
             </ol>
