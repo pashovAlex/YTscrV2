@@ -4,7 +4,8 @@ import subprocess
 
 def download_audio(url, output_name):
     try:
-        output_path = os.path.join(get_download_dir(), f"{output_name}.mp3")
+        # output_path = os.path.join(get_download_dir(), f"{output_name}.mp3")
+        output_path = "/home/apshv/Music"
         subprocess.run(["youtube-dl", "-x", "--audio-format", "mp3", "--add-metadata", "--embed-thumbnail", "-o", output_path, url], check=True)
         print("Audio downloaded successfully.")
     except subprocess.CalledProcessError as e:
