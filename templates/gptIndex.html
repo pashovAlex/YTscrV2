@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YTscr V2</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+    <style>
+        /* Additional CSS styles for increased size */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray */
+        }
+
+        #mainDiv {
+            background-color: #f0f0f0; /* Lighter gray */
+            border-radius: 10px;
+            padding: 25px; /* Increased padding */
+            margin: 50px auto;
+            width: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 12.5px; /* Increased margin */
+            font-size: 1.25em; /* Increased font size */
+        }
+
+        input[type="text"] {
+            width: calc(100% - 30px); /* Adjust for padding and border */
+            padding: 12.5px;
+            margin-bottom: 25px; /* Increased margin */
+            border: 1px solid #ccc;
+            border-radius: 6.25px; /* Increased border radius */
+            font-size: 1.25em; /* Increased font size */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff; /* Blue */
+            color: #fff;
+            padding: 12.5px 25px; /* Increased padding */
+            border: none;
+            border-radius: 6.25px; /* Increased border radius */
+            cursor: pointer;
+            font-size: 1.25em; /* Increased font size */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .loader {
+            border: 10px solid #f3f3f3; /* Light grey */
+            border-top: 10px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 62.5px; /* Increased width */
+            height: 62.5px; /* Increased height */
+            animation: spin 1s linear infinite;
+            display: none; /* Initially hidden */
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px; /* Increased margin */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <form method="POST" onsubmit="showLoader()">
+            <label for="flLinkInput">Постави линк за плейлиста си</label>
+            <input type="text" id="flLinkInput" name="flLinkInput" placeholder="Въведете линк към плейлиста си">
+            <input type="submit" value="Сканирай плейлиста">
+            <div class="loader" id="loader"></div>
+        </form>
+    </div>
+
+    <script>
+        function showLoader() {
+            document.getElementById("loader").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

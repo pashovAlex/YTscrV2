@@ -1,7 +1,11 @@
 from flask import Flask, request, render_template
 from scraper import getInnerHTML, scrapeVids, pandas_output
 
+import time
+
 global flLinkInput
+global start_time
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -10,6 +14,7 @@ def index():
         # user_variable = request.form['user_variable']
         input = request.form["flLinkInput"]
         try:
+            start_time = time.time()
             innerHTML = getInnerHTML(input)
         except:
             errorUrl = "GO BACK AND ENTER VALID URL !!!"
@@ -24,7 +29,9 @@ def index():
             print(errorScr)
             return render_template("error.html", err=errorScr)
         else:
+            duration = time.time() - start_time
             print("scrapping successfuly :)")
+            print(f"Duration: {duration}")
         return render_template("index2.html", playlist = playlist)
         # return user_variable
     return render_template("index.html")
