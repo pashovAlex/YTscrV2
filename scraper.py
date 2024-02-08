@@ -28,7 +28,7 @@ def scrapeVids(html):
         # img = el.select_one(" div#content div#container ytd-thumbnail#thumbnail a#thumbnail yt-image.ytd-thumbnail img").get('src')
         link = "https://youtube.com" + el.select_one("div#content ytd-thumbnail a").attrs['href']
         charRem = "list"
-        link = link[:link.index(charRem) + (len(charRem) - 3)]
+        link = link[:link.index(charRem) + (len(charRem) - 5)]
         video.append([h1, link])
         # video.append([h1, link, img])
         playlist.append(video)
@@ -43,3 +43,6 @@ def pandas_output(main_list):
 # for vid in testList:
 #     for el in vid:
 #         print(el[2])
+
+if __name__ == "__main__":
+    print(scrapeVids(getInnerHTML("https://www.youtube.com/playlist?list=PLKq6LCtE6MpbUSIWgkNe3NXO2LVwW-YsR")))

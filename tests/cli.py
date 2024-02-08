@@ -1,10 +1,12 @@
 from scraper import getInnerHTML, scrapeVids
-from mp3down import forLoop as downloader
-import sys
+from mp3down import main as downloader
 
 def main():
-    plUrl = sys.argv[1]
-    downloader(scrapeVids(getInnerHTML(plUrl)))
+    plUrl = input("Enter playlist link: \n")
+    playlist = scrapeVids(getInnerHTML(plUrl))
+    for vids in playlist:
+        for atrs in vids:
+            downloader(atrs[1], atrs[0])
     
 if __name__ == '__main__':
     main()
