@@ -4,14 +4,14 @@
 }
 
 body {
-    background-color: #2c3e50;
+    background-color: #333;
     margin: 0;
     padding: 0;
     font: 15px/1.5 sans-serif;
 }
 
 #mainDiv {
-    background-color: #3f39392c;
+    background-color: #444;
     border-radius: 15px;
     text-align: center;
     font: 15px;
@@ -29,7 +29,7 @@ ol li {
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
-    background-color: #2c3e50;
+    background-color: #555;
 }
 
 ol li a {
