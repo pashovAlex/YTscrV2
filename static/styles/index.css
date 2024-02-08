@@ -40,6 +40,15 @@ input[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     font-size: 100%;
+    margin-left: 1%;
+}
+
+p {
+    float: right;
+    padding: auto;
+    margin: 1%;
+    color: #ccc;
+    font-size: larger;
 }
 
 .loader {
