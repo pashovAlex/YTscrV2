@@ -4,7 +4,7 @@ import subprocess
 
 def download_audio(url, output_name):
     try:
-        output_path = os.path.join("/home/apshv/Music/Chalgata", f"{output_name}.mp3")
+        output_path = os.path.join("/home/apshv/Music/hardTrap", f"{output_name}.mp3")
         # output_path = "/home/apshv/Music/"
         subprocess.run(["yt-dlp", "-x", "--audio-format", "mp3", "--add-metadata", "--embed-thumbnail", "-o", output_path, url], check=True)
         print("Audio downloaded successfully.")
@@ -22,18 +22,21 @@ def get_video_title(url):
         print("Error getting video title:", e)
         sys.exit(1)
 
-def main(url, output_name):
-    # if len(sys.argv) < 3:
-    #     print("Usage: python download_audio.py <youtube_url> <output_name>")
-    #     sys.exit(1)
+def main():
+    if len(sys.argv) < 3:
+        print("Usage: python download_audio.py <youtube_url> <output_name>")
+        sys.exit(1)
 
-    # url = sys.argv[1]
-    # output_name = sys.argv[2]
+    url = sys.argv[1]
+    output_name = sys.argv[2]
 
     download_audio(url, output_name)
     
 def forLoop(playlist):
+    i=0
     for vids in playlist:
+        i+=1
+        print(f"Downloading song {i} from {len(playlist)}")
         for atrs in vids:
             download_audio(atrs[1], atrs[0])
 
